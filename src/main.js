@@ -62,7 +62,9 @@ function createImageHTML(image) {
         html += `
             <div class="card gallery">
                     
-            <a class="large-img" href="${hit.largeImageURL}"><img width="300" height="200" alt="${hit.tags}" src="${hit.webformatURL}"></a>
+                <a class="large-img" href="${hit.largeImageURL}">
+                    <img width="300" height="200" alt="${hit.tags}" src="${hit.webformatURL}">
+                </a>
 
                 <div class="card-elems">
                     <div class="card-text-el">
