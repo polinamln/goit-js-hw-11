@@ -24,7 +24,7 @@ form.addEventListener('submit', (event) => {
 
     renderImages(query);
 
-    lightbox.refresh()
+    
 })
 
 function getImage (quary) {
@@ -45,6 +45,7 @@ function renderImages(quary) {
     getImage(quary)
         .then(image => {
             imagesList.insertAdjacentHTML("afterbegin", createImageHTML(image))
+            lightbox.refresh()
             if (image.hits.length === 0) {
                 iziToast.error({
                     position: 'center',
