@@ -62,7 +62,7 @@ function createImageHTML(image) {
         html += `
             <div class="card ">
                 <div class="gallery">
-                    <a href="${hit.largeImageURL}" data-lightbox="image">
+                    <a href="${hit.largeImageURL}">
                         <img class="gallery-image" src="${hit.webformatURL}" alt="${hit.tags}">
                     </a>
                 </div>
