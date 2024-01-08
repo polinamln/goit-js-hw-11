@@ -1,6 +1,9 @@
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
+
 const form = document.querySelector('.body-elements')
 const imagesList = document.querySelector('.images-list');
 
@@ -57,8 +60,12 @@ function renderImages(quary) {
 function createImageHTML(image) {
     const imagesHTML = image.hits.reduce((html, hit) => {
         html += `
-            <div class="card">
-                <img width="300" alt="${hit.tags}" src="${hit.webformatURL}">
+            <div class="card ">
+                <div class="gallery">
+                    <a href="${hit.largeImageURL}" data-lightbox="image">
+                        <img class="gallery-image" src="${hit.webformatURL}" alt="${hit.tags}">
+                    </a>
+                </div>
                 <div class="card-elems">
                     <div class="card-text-el">
                         <h2 class="card-title">Likes</h2>
@@ -84,6 +91,9 @@ function createImageHTML(image) {
 
     return imagesHTML;
 }
+
+
+
 
 //webformatURL — посилання на маленьке зображення для списку карток у галереї
 //largeImageURL — посилання на велике зображення для модального вікна
