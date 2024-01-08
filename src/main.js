@@ -23,6 +23,8 @@ form.addEventListener('submit', (event) => {
     const query = event.currentTarget.elements.inputValue.value;
 
     renderImages(query);
+
+    lightbox.refresh()
 })
 
 function getImage (quary) {
@@ -92,7 +94,11 @@ function createImageHTML(image) {
     return imagesHTML;
 }
 
-
+const lightbox = new SimpleLightbox('.gallery a', {
+        captionsData: "alt",
+        captionDelay: 250,
+        captionPosition:'bottom'
+    });
 
 
 //webformatURL — посилання на маленьке зображення для списку карток у галереї
