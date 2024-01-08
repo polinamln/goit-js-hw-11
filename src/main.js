@@ -60,12 +60,10 @@ function renderImages(quary) {
 function createImageHTML(image) {
     const imagesHTML = image.hits.reduce((html, hit) => {
         html += `
-            <div class="card ">
-                <div class="gallery">
+            <div class="card gallery">
                     <a href="${hit.largeImageURL}">
                         <img class="gallery-image" src="${hit.webformatURL}" alt="${hit.tags}">
                     </a>
-                </div>
                 <div class="card-elems">
                     <div class="card-text-el">
                         <h2 class="card-title">Likes</h2>
