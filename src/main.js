@@ -7,6 +7,8 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 const form = document.querySelector('.body-elements')
 const imagesList = document.querySelector('.images-list');
 
+const loader = document.querySelector('.loader')
+
 const BASE_URL = 'https://pixabay.com/api/'
 const API_KEY = "27271649-0bf2f3b05194a9267cfa0a660"
 const url = new URL(BASE_URL);
@@ -16,18 +18,24 @@ url.searchParams.append('orientation', 'horizontal')
 url.searchParams.append('safesearch', 'true')
 url.searchParams.append('q', 'cat')
 
+loader.style.display = 'none';
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
+
+    loader.style.display = 'block';
+    
+    imagesList.innerHTML = '';
 
     const query = event.currentTarget.elements.inputValue.value;
 
     renderImages(query);
 
-    
+    event.currentTarget.reset()
 })
 
-function getImage (quary) {
+function getImage(quary) {
+    
     url.searchParams.set('q', quary);
     return fetch(url)
         .then((res) => {
@@ -101,11 +109,3 @@ const lightbox = new SimpleLightbox('.gallery a', {
         captionPosition:'bottom'
     });
 
-
-//webformatURL — посилання на маленьке зображення для списку карток у галереї
-//largeImageURL — посилання на велике зображення для модального вікна
-//tags — рядок з описом зображення. Підійде для атрибута alt
-//likes — кількість вподобайок
-//views — кількість переглядів
-//comments — кількість коментарів
-//downloads — кількість завантажень 
