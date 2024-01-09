@@ -45,7 +45,11 @@ function getImage(quary) {
                 throw new Error('Request is ot OK.')
             }
         }).catch(error => {
-            throw new Error('Error fetching Data.')
+            iziToast.error({
+                    position: 'center',
+                    title: '',
+                    message: 'Sorry, there are no images matching your search query. Please try again!',
+});
         })
 };
 
@@ -63,7 +67,11 @@ function renderImages(quary) {
             }
         })
         .catch(error => {
-        alert(error)
+        iziToast.error({
+                    position: 'center',
+                    title: '',
+                    message: 'Sorry, there are no images matching your search query. Please try again!',
+});
     })
     
 };
